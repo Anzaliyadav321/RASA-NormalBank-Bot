@@ -1,0 +1,75 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+
+
+- story: ask balance questions
+  steps:
+  - intent: ask_checking_balance
+  - action: utter_balance_info
+
+- story: ask transaction questions
+  steps:
+  - intent: ask_transaction_history
+  - action: utter_transaction_info 
+
+- story: provide information about your account
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform
+  - action: bank_form
+  - active_loop: bank_form
+  - intent: ask_checking_balance
+  - action: utter_balance_info
+  - action: bank_form
+  - active_loop: null
+  - action: utter_submit
+  - intent: ask_transaction_history
+  - action: utter_transaction_info
+  - action: bank_form
+  - active_loop: null
+  - action: utter_slot_values
+  - action: utter_goodbye 
+
+
+- story: provide information about out of scope
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: out_of_scope
+  - action: bank_form
+  - action: bank_form
+  - active_loop: null 
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null 
+  - action: utter_goodbye   

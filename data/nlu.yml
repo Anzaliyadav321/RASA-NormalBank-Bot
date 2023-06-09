@@ -1,0 +1,136 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+
+
+- intent: inform
+  examples: |
+    - I want to check my balnce
+    - I want to know my transaction detail
+    - you can save a lot money be careful while spending 
+    - [hari](name)
+    - [ram](name)
+    - [anushka](name)
+    - [John](name)
+    - [maya](name)
+    - [cimran](name)
+    - [fura](name)
+    - [sita](name)
+
+- intent: ask_checking_balance
+  examples: |
+    - How much balance is left in my account?
+    - I want to check my balance
+    - I want to know my account balance
+    - [10000000](account_number)
+    - I want to check my balance please
+    - [hari](name) your [10000000](account_number)
+    - I want to know my account balnce please
+    - [sita](name) your [13333333](account_number)
+    - I want to check my account balance please
+    - [maya](name) your [12222222](account_number)
+
+- intent: ask_transaction_history
+  examples: |
+    - I want to know the last week transaction
+    - I want to know how much I spend in last month 
+            
+    
+
+
+- intent: out_of_scope
+  examples: |
+    - invalid account_number
+    - invalid Phone_number
+    - wrong name    
+
+

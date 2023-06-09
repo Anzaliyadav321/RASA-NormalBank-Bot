@@ -1,0 +1,153 @@
+version: "3.1"
+
+intents:
+  - ask_checking_balance
+  - ask_transaction_history
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - inform
+  - out_of_scope
+  # - text:What is your name?utter_ask_name:
+  # - text:What is your phone number?utter_phone_number:
+  # - text:What is your account number?utter_account_number:
+
+
+actions:
+- validate_bank_form
+  # - utter_greet
+  # - utter_did_that_help
+  # - utter_cheer_up
+  # - utter_happy
+  # - utter_goodbye
+  # - utter_iamabot
+  # - utter_balance_info
+  # - utter_transaction_info
+  # - utter_ask_name
+  # - utter_ask_phone_number
+  # - utter_ask_account_number
+
+entities:
+  - account_number
+  - phone_number
+  - name
+  
+
+slots:
+  name:
+    type: text
+    mappings:
+    - type: custom
+      # auto_fill: false
+      # entity: name
+      # conditions:
+      # - active_loop: bank_form
+      #   requested_slot: name
+
+  account_number:
+    type: text
+    mappings:
+    - type: custom
+      # auto_fill: false
+      # entity: account_number
+      # conditions:
+      # - active_loop: bank_form
+      #   requested_slot: account_number
+
+
+  phone_number:
+    type: text
+    mappings:
+    - type: custom
+      # auto_fill: false
+      # entity: phone_number
+    #   conditions:
+    #   - active_loop: bank_form
+    #     requested_slot: phone_number
+
+  # check_balance:
+  #   type: text
+  #   mappings:
+  #   - type: custom     
+
+
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How can I halp you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  
+  utter_wrong_name:
+  - text: "Sorry we are unable to proceed with your orientation type, please try again"
+
+  
+  utter_wrong_phone:
+  - text: "Sorry we are unable to proceed with your orientation type, please try again"
+
+  
+  utter_wrong_account:
+  - text: "Sorry we are unable to proceed with your orientation type, please try again"
+
+  utter_balance_info:
+  - text: "Dear sita, your account no: 13333333 has a balance  of RS1000" 
+  - text: "Dear maya, your account no: 12222222 has a balance  of RS1000" 
+  - text: "Dear hari, your account no: 10000000 has a balance  of RS1000" 
+
+
+  utter_transaction_info:
+  - text: "You have spent a lot of money"
+
+  utter_ask_name:
+  - text: "May I know your name please?"
+
+  utter_ask_Phone_number:
+  - text: "May I know your phone_number please?"
+
+  utter_ask_account_number:
+  - text: "May I know your account_number please?"
+
+  utter_slot_values:
+  - text: "Here's your detail log:\n
+            - Name?: {name}\n
+            - Number: {phone_number}\n
+            - Account: {account_number}"
+
+  
+  utter_submit:
+  - text: "Thanks for the information provided."          
+  uttre_ask_continue:
+  - text: "Sorry, I don't quite understand. Do you want to continue?"           
+
+  
+forms:
+  bank_form:
+    required_slots:
+        - name
+        - phone_number
+        - account_number
+        # - check_balance
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
