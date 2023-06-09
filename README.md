@@ -1,5 +1,5 @@
 # RASA-NormalBank-Bot
-#The Project Involves:
+The Project Involves:
 
 Classifying the user intent related to checking balance, transaction history and some basic intents like greet and goodbye.
 Identifying entities such as account number, name, phone number.
